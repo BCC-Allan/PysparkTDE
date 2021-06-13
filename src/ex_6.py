@@ -21,7 +21,7 @@ def year_qty_name_per_comm_price_qty(row):
     price = values[Indexes.PRICE.value]
     qty_name = values[Indexes.QUANTITY_NAME.value]
     key = f'{year}_{qty_name}'
-    return key, (price, commodity)
+    return key, (int(price), commodity)
 
 
 """
@@ -31,9 +31,7 @@ comoditi com maior preço por / unidade tipo e ano
 
 
 def reduce_take_max(a, b):
-    a_price = int(a[0])
-    b_price = int(b[0])
-    if a_price > b_price:
+    if a[0] >= b[0]:
         return a
     return b
 
@@ -41,7 +39,8 @@ def reduce_take_max(a, b):
 first_filter = rdd.filter(quantity_name_not_empty)
 rdd_filtered_2 = first_filter.map(year_qty_name_per_comm_price_qty)
 rdd_qtd_per_flow = rdd_filtered_2.reduceByKey(reduce_take_max)
-
 print(rdd_qtd_per_flow.take(5))
-
+#
+# print(rdd_filtered_2.take(5))
+# 2012-'number of items'	commodity:620459-price:9649
 # save_rdd_to_file(rdd_qtd_per_flow.coalesce(1), 'ex6')
