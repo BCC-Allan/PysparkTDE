@@ -30,6 +30,6 @@ class Indexes(Enum):
     FLOW = 4
     PRICE = 5
     WEIGHT = 6
-    UNIT = 7
-    AMMOUNT = 8
+    QUANTITY_NAME = 7
+    QUANTITY = 8
     CATEGORY = 9
