@@ -42,5 +42,5 @@ rdd_qtd_per_flow = rdd_filtered_2.reduceByKey(reduce_take_max)
 print(rdd_qtd_per_flow.take(5))
 #
 # print(rdd_filtered_2.take(5))
-# 2012-'number of items'	commodity:620459-price:9649
+# 2012-'number of items'	commodity:620459-price:9649git
 # save_rdd_to_file(rdd_qtd_per_flow.coalesce(1), 'ex6')
