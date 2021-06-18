@@ -26,7 +26,7 @@ class Indexes(Enum):
     COUNTRY = 0
     YEAR = 1
     COMCODE = 2
-    COM = 3
+    COMNAME = 3
     FLOW = 4
     PRICE = 5
     WEIGHT = 6
